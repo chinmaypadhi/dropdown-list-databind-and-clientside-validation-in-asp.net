@@ -6,12 +6,15 @@
 <head runat="server">
     <title></title>
     <script type="text/javascript">
-        var x = () => {
-            var s = document.getElementById("DropDownList1").value;
-            if (s == 1) {
-                alert("plz enter any value without 1");
-            }
-        }
+        function ValidateDropdown() {
+            var result = document.getElementById('<%=DropDownList1.ClientID%>').value;
+    if (result == "0") {
+        alert("Please Select Education");
+    }
+    else {
+        alert("Dropdownlist Selected Value is: " + result);
+    }
+}
     </script>
 </head>
 <body>
@@ -19,7 +22,7 @@
         <div>
             <asp:DropDownList  ID="DropDownList1" runat="server" >
             </asp:DropDownList>
-            <asp:Button ID="Button1" runat="server" Text="Button" />
+            <asp:Button ID="Button1" runat="server" Text="Button" OnClientClick="ValidateDropdown()" />
         </div>
         <asp:GridView ID="GridView1" runat="server">
         </asp:GridView>
